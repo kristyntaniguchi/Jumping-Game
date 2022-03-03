@@ -12,7 +12,10 @@ body{
     display: grid;
     justify-content: center;
     margin-top: 10px;
+    background-color: rgba(204, 246, 252, .5); 
 }
+
+
 
 #banner{
     display: grid;
@@ -132,10 +135,10 @@ going to add this to js so the character jumps*/
     border: 1px solid black;
     border-radius: 10px;
     cursor: pointer;
-    background: #f0f0f0;
+    background: rgb(237, 241, 236);
 }
 
 .buttons:hover{
-    background: rgb(187, 217, 223);
+    background: rgb(214, 218, 213);
     transition: .2s;
 }

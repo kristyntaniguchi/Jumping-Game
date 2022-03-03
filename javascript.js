@@ -77,8 +77,6 @@ btnStartGame.addEventListener("click", e => {
  }, 10);
 
  function gameOver() {
-    //stop the animation
-    //  ball.style.animation = "none";
     banner.innerText = "Oh no! You got hit!";
     document.getElementById("final-score").style.color = "red";
     finalScore.innerText = "Final Score: " + runningScore;
