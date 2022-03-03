@@ -88,7 +88,6 @@ going to add this to js so the character jumps*/
     top: 100px;
     /* push the block to the right */
     left: 480px;
-   
 }
 
 .animate-ball{
@@ -99,14 +98,13 @@ going to add this to js so the character jumps*/
 
     /* animation: ballRoll 200ms; */
     animation: ball 2s infinite linear;
-
 }
 
 /* animation to make ball move */
 /* turn into js */
 @keyframes ball{
     0%{left: 480px;}
-    100%{left: -7px;}
+    100%{left: -3px;}
     from{
         transform: rotate(0);
     }
@@ -126,23 +124,17 @@ going to add this to js so the character jumps*/
 }
 
 .buttons{
-    width: 100px;
-    height: 40px;
+    padding: 15px 30px;
     margin: 10px;
     font-weight: bold;
-    border-radius: 10px;
-}
-
-/* Debug */
-#debugWidth {
     border: 1px solid black;
-    width: 44px;
-    height: 30px;
-    margin-top: -200px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #f0f0f0;
 }
 
 /* CHANGE THIS BECAUSE IT'S VERY UGLY */
 .buttons:hover{
-    background-color: aqua;
+    background: rgb(187, 217, 223);
     transition: .2s;
 }

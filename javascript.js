@@ -37,10 +37,13 @@ function startGame() {
     finalScore.innerText = "Jump over the ball";
     document.getElementById("final-score").style.color = "black";
     runningScore = 0;
+    isGameRunning = true;
 };
 
 btnStartGame.addEventListener("click", e => {
-    startGame();
+    if(!isGameRunning) {
+        startGame();
+    }
 });
 
  //add button click function
@@ -51,6 +54,7 @@ btnStartGame.addEventListener("click", e => {
  //add keyboard function
  //space bar makes character jump
  window.addEventListener("keydown", e => {
+    
      if(e.key === " "){
          jump();
      }
@@ -71,17 +75,18 @@ btnStartGame.addEventListener("click", e => {
  }, 10);
 
  function gameOver() {
-         //stop the animation
-        //  ball.style.animation = "none";
-         banner.innerText = "Oh no! You got hit!";
-         document.getElementById("final-score").style.color = "red";
-         finalScore.innerText = "Final Score: " + runningScore;
-         ball.classList.remove("animate-ball");
+    //stop the animation
+    //  ball.style.animation = "none";
+    banner.innerText = "Oh no! You got hit!";
+    document.getElementById("final-score").style.color = "red";
+    finalScore.innerText = "Final Score: " + runningScore;
+    ball.classList.remove("animate-ball");
+    isGameRunning = false;
  }
 
-const debug = document.getElementById("debug");
-let scoreFps = 0;
-let lowestPos = parseInt(window.getComputedStyle(ball).getPropertyValue("left"));
+// const debug = document.getElementById("debug");
+// let scoreFps = 0;
+// let lowestPos = parseInt(window.getComputedStyle(ball).getPropertyValue("left"));
 setInterval(function keepScore(){
     //different scope
     let ballPosition = parseInt(window.getComputedStyle(ball).getPropertyValue("left"));
@@ -89,16 +94,10 @@ setInterval(function keepScore(){
     //if character jumps over the block, score +1
     //if ball gets to 1px from the left, it successfull made it under the character
     //so 1 point is added to the score
-    if(ballPosition <= 50){
+    if(ballPosition < 31){
         runningScore += 1;
     }
     //update the score
     score.innerText = "Score: " + runningScore; 
-
-    // Debug
-    if(ballPosition < lowestPos ) lowestPos = ballPosition;
-    debug.innerText = "Debug Score: " + scoreFps++ + "\n" +
-    "Lowest Pos: " + lowestPos;
-
 //check runs every 200ms because it takes the ball 2s to roll all the way    
 }, 200);
