@@ -27,6 +27,8 @@ body{
     justify-content: center;
     margin-bottom: 20px;
 }
+
+/* set game screen settings */
 #game{
     width: 500px;
     height: 200px;
@@ -133,7 +135,6 @@ going to add this to js so the character jumps*/
     background: #f0f0f0;
 }
 
-/* CHANGE THIS BECAUSE IT'S VERY UGLY */
 .buttons:hover{
     background: rgb(187, 217, 223);
     transition: .2s;

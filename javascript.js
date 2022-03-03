@@ -11,7 +11,7 @@
 
  //set banner text
  banner.innerText = "Let's Play!";
- finalScore.innerText = "Jump over the ball";
+ finalScore.innerText = "Press the spacebar or Jump button to jump";
 
  //create the jump function
  function jump() {
@@ -34,10 +34,26 @@
 function startGame() {
     ball.classList.add("animate-ball");
     banner.innerText = "Let's Play!";
-    finalScore.innerText = "Jump over the ball";
+    finalScore.innerText = "Press the spacebar or Jump button to jump";
     document.getElementById("final-score").style.color = "black";
     runningScore = 0;
     isGameRunning = true;
+};
+
+window.onload = function(){
+    //add button click function
+    btnJump.addEventListener("click", e => {
+        jump();
+    });
+
+    //add keyboard function
+    //space bar makes character jump
+    window.addEventListener("keydown", e => {
+   
+        if(e.key === " "){
+            jump();
+        }
+    });
 };
 
 btnStartGame.addEventListener("click", e => {
@@ -45,20 +61,6 @@ btnStartGame.addEventListener("click", e => {
         startGame();
     }
 });
-
- //add button click function
- btnJump.addEventListener("click", e => {
-     jump();
- });
-
- //add keyboard function
- //space bar makes character jump
- window.addEventListener("keydown", e => {
-    
-     if(e.key === " "){
-         jump();
-     }
- });
 
  setInterval(function didIDie(){
     //get top position of the character and assign it to a variable
@@ -84,9 +86,6 @@ btnStartGame.addEventListener("click", e => {
     isGameRunning = false;
  }
 
-// const debug = document.getElementById("debug");
-// let scoreFps = 0;
-// let lowestPos = parseInt(window.getComputedStyle(ball).getPropertyValue("left"));
 setInterval(function keepScore(){
     //different scope
     let ballPosition = parseInt(window.getComputedStyle(ball).getPropertyValue("left"));
