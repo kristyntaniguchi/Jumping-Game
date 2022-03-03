@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*{
+    /* give page a blank slate. remove auto padding and margin */
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Inter', sans-serif;
+
+}
+
+body{
+    display: grid;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#banner{
+    display: grid;
+    justify-content: center;
+    padding: 30px;
+    padding-bottom: 20px;
+    font-size: 40px;
+}
+
+#final-score{
+    display: grid;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+#game{
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    background-image: url("images/landscape.png");   
+    background-size: 500px 200px;
+    border-radius: 10px;
+}
+
+#character{
+    width: 29px;
+    height: 50px;
+    background-image: url("images/bunny_transparent2.png");
+    background-size: cover;
+    background-position-x: -8px;
+    /* set position to relative so we can get the character to the bottom */
+    position: relative;
+    /* top is 150px because the game height is 200 and the 
+    character is 50 and we want to push the character to the bottom*/
+    top: 118px;
+    left: 30px;
+}
+
+/*  all this class does is add the animation jump 
+going to add this to js so the character jumps*/
+.animate{
+    /* add jump animation to the character
+    we don't want it to just keep jumping,
+    we want it to jump when we call a javascript function so
+    we are putting it in a new class that we can call*/
+    animation: jump 800ms;
+}
+
+/* animation so character can jump */
+/* turn into js */
+@keyframes jump{
+    0%{top: 118px;}
+    /* 40% and 60% having the same top will let the character 
+    hover for a little before coming down so they can make it 
+    over the block*/
+    40%{top: 75px;}
+    60%{top: 75px;}
+    100%{top: 118px;}
+}
+
+#ball{
+    width: 17px;
+    height: 22px;
+    /* border-radius: 80% 80% 60% 60%; */
+    background-image: url("images/easter-egg-transparent.png");
+    background-size: cover;
+    background-position-x: 0px;
+    border-radius: 62% 62% 50% 50%;
+    /* background: conic-gradient(red, orange, yellow, green, blue, purple); */
+    position: relative;
+    /* push the block to the bottom, but why only 130px?
+    is it because the character is 50px and located above on html? */
+    top: 100px;
+    /* push the block to the right */
+    left: 480px;
+   
+}
+
+.animate-ball{
+     /* add animation to the ball
+    infinite so it keeps sliding. 
+    leaving infinite will make it slide only once 
+    linear: makes it move evenly and not zip across*/
+
+    /* animation: ballRoll 200ms; */
+    animation: ball 2s infinite linear;
+
+}
+
+/* animation to make ball move */
+/* turn into js */
+@keyframes ball{
+    0%{left: 480px;}
+    100%{left: -7px;}
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(-360deg);
+    }
+}
+
+#score{
+    font-weight: bold;
+}
+
+#btns{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+}
+
+.buttons{
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+/* Debug */
+#debugWidth {
+    border: 1px solid black;
+    width: 44px;
+    height: 30px;
+    margin-top: -200px;
+}
+
+/* CHANGE THIS BECAUSE IT'S VERY UGLY */
+.buttons:hover{
+    background-color: aqua;
+    transition: .2s;
+}
